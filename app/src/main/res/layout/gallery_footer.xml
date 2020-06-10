@@ -9,7 +9,7 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="@dimen/dp_30"
         android:indeterminateTint="@color/design_default_color_on_secondary" />
 
     <TextView
