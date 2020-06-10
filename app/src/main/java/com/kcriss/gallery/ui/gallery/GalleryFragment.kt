@@ -11,6 +11,7 @@ import com.kcriss.gallery.R
 import kotlinx.android.synthetic.main.fragment_gallery.*
 
 class GalleryFragment : Fragment() {
+    val TAG = "GalleryFragment"
     private val galleryViewModel by viewModels<GalleryViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +38,7 @@ class GalleryFragment : Fragment() {
             galleryViewModel.resetQuery()
         }
         galleryViewModel.networkStatus.observe(viewLifecycleOwner, Observer {
-            Log.d("networkStatus", "onActivityCreated: "+it)
+            Log.d(TAG, "onActivityCreated: "+it)
             galleryAdapter.updataNetworkstatus(it)
             swiperRefresh.isRefreshing = it == Networkstatus.INITIAL_LOADING
         })
