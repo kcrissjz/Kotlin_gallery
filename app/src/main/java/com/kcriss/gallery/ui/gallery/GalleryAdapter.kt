@@ -24,10 +24,8 @@ import kotlinx.android.synthetic.main.gallery_footer.view.*
  * Created by liujunzhe on 2020/6/8.
  */
 class GalleryAdapter(private val galleryViewModel: GalleryViewModel): PagedListAdapter <PhotoItem, RecyclerView.ViewHolder>(DIFFCALLBACK) {
-
     private var hasFooter = false
     private var networkstatus:Networkstatus? = null
-
     init {
         galleryViewModel.retry()
     }
@@ -73,12 +71,8 @@ class GalleryAdapter(private val galleryViewModel: GalleryViewModel): PagedListA
                     galleryViewModel.retry()
                 }
             }
-
         }
-
     }
-
-
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder.itemViewType){
@@ -98,9 +92,7 @@ class GalleryAdapter(private val galleryViewModel: GalleryViewModel): PagedListA
         override fun areContentsTheSame(oldItem: PhotoItem, newItem: PhotoItem): Boolean {
             return oldItem == newItem
         }
-
     }
-
 }
 
 class PhotoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
