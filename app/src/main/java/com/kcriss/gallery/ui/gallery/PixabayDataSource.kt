@@ -56,7 +56,7 @@ class PixabayDataSource(val context: Context) : PageKeyedDataSource<Int, PhotoIt
                     retry = { loadInitial(params, callback) }
                     _networkStatus.postValue(Networkstatus.FAILED)
                 }
-                Log.d("hello", " loadInitData:" + it)
+                Log.d("Networkstatus", " loadInitData:" + it)
             }
         ).also { VolleySingleton.getInstance(context).requestQueue.add(it) }
     }
@@ -70,11 +70,9 @@ class PixabayDataSource(val context: Context) : PageKeyedDataSource<Int, PhotoIt
             Request.Method.GET,
             url,
             Response.Listener {
-
                 val dataList = Gson().fromJson(it, Pixabay::class.java).hits.toList()
                 callback.onResult(dataList, params.key + 1)
                 _networkStatus.postValue(Networkstatus.LOADED)
-
             },
             Response.ErrorListener {
                 if (it.toString() == "com.android.volley.ClientError") {
@@ -83,9 +81,7 @@ class PixabayDataSource(val context: Context) : PageKeyedDataSource<Int, PhotoIt
                     retry = { loadAfter(params, callback) }
                     _networkStatus.postValue(Networkstatus.FAILED)
                 }
-
-                Log.d("hello", " loadInitData:" + it)
-
+                Log.d("Networkstatus", " loadInitData:" + it)
             }
         ).also { VolleySingleton.getInstance(context).requestQueue.add(it) }
     }
