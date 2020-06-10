@@ -34,7 +34,7 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/dp_16"
         android:clickable="true"
         android:src="@drawable/save_button_image"
         app:layout_constraintBottom_toBottomOf="@+id/photoTag"

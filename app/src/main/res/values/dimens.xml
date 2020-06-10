@@ -2,4 +2,5 @@
 <resources>
     <dimen name="dp_2">2dp</dimen>
     <dimen name="dp_50">50dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
 </resources>
